@@ -1,0 +1,19 @@
+---
+# Source: comfyui/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/instance: {{ .Values.name }}
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+      nodePort: {{ .Values.nodePort }}
+      targetPort: 8848
+  selector:
+    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/instance: {{ .Values.name }}

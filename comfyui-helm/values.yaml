@@ -1,0 +1,5 @@
+name: comfyui
+replication: true
+replicas: 1
+serviceType: NodePort
+nodePort: 31000

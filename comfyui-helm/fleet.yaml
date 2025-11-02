@@ -1,0 +1,26 @@
+namespace: apps
+targetCustomizations:
+- name: dev
+  helm:
+    values:
+      replication: false
+  clusterSelector:
+    matchLabels:
+      env: dev
+
+- name: test
+  helm:
+    values:
+      replicas: false
+  clusterSelector:
+    matchLabels:
+      env: tst
+
+- name: prod
+  helm:
+    values:
+      serviceType: LoadBalancer
+      replicas: 1
+  clusterSelector:
+    matchLabels:
+      env: prd

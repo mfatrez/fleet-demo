@@ -1,0 +1,27 @@
+---
+# Source: comfyui/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.name }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/instance: {{ .Values.name }}
+  annotations:
+    cert-manager.io/cluster-issuer: ca-issuer
+    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50g"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: comfyui.mon-lab.lan
+      http:
+        paths:
+          - backend:
+              service:
+                name: {{ .Values.name }}
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix

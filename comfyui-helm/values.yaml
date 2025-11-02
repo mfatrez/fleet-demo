@@ -1,4 +1,3 @@
-name: comfyui
 replicas: 1
 serviceType: NodePort
 nodePort: 31000

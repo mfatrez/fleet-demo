@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}
+  name: comfyui
   labels:
-    app.kubernetes.io/name: {{ .Values.name }}
-    app.kubernetes.io/instance: {{ .Values.name }}
+    app.kubernetes.io/name: comfyui
+    app.kubernetes.io/instance: comfyui
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ .Values.name }}
-      app.kubernetes.io/instance: {{ .Values.name }}
+      app.kubernetes.io/name: comfyui
+      app.kubernetes.io/instance: comfyui
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ .Values.name }}
-        app.kubernetes.io/instance: {{ .Values.name }}
+        app.kubernetes.io/name: comfyui
+        app.kubernetes.io/instance: comfyui
     spec:
       runtimeClassName: nvidia
       imagePullSecrets:

@@ -3,10 +3,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}
+  name: comfyui
   labels:
-    app.kubernetes.io/name: {{ .Values.name }}
-    app.kubernetes.io/instance: {{ .Values.name }}
+    app.kubernetes.io/name: comfyui
+    app.kubernetes.io/instance: comfyui
 spec:
   type: NodePort
   ports:
@@ -15,5 +15,5 @@ spec:
       nodePort: {{ .Values.nodePort }}
       targetPort: 8848
   selector:
-    app.kubernetes.io/name: {{ .Values.name }}
-    app.kubernetes.io/instance: {{ .Values.name }}
+    app.kubernetes.io/name: comfyui
+    app.kubernetes.io/instance: comfyui

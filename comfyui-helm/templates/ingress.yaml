@@ -3,11 +3,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.name }}
-  namespace: {{ .Values.name }}
+  name: comfyui
+  namespace: comfyui
   labels:
-    app.kubernetes.io/name: {{ .Values.name }}
-    app.kubernetes.io/instance: {{ .Values.name }}
+    app.kubernetes.io/name: comfyui
+    app.kubernetes.io/instance: comfyui
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
     ingress.kubernetes.io/ssl-redirect: "true"
@@ -20,7 +20,7 @@ spec:
         paths:
           - backend:
               service:
-                name: {{ .Values.name }}
+                name: comfyui
                 port:
                   number: 80
             path: /

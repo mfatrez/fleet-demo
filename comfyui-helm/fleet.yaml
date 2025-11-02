@@ -1,4 +1,6 @@
-namespace: apps
+defaultNamespace: comfyui
+---
+namespace: comfyui
 targetCustomizations:
 - name: dev
   helm:

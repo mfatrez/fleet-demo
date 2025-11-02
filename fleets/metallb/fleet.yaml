@@ -9,17 +9,17 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       env: dev
-  kustomization:
-    dir: overlays/dev
+  kustomize:
+    dir: ./dev
 - name: test
   clusterSelector:
     matchLabels:
       env: tst
-  kustomization:
-    dir: overlays/tst
+  kustomize:
+    dir: ./tst
 - name: prod
   clusterSelector:
     matchLabels:
       env: prd
-  kustomization:
-    dir: overlays/prd
+  kustomize:
+    dir: ./prd

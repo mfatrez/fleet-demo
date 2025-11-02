@@ -1,7 +1,7 @@
 defaultNamespace: default
 namespace: cert-manager
 helm:
-  chart: ./cert-manager
+  chart: cert-manager
   repo: "https://charts.jetstack.io"
   version: v1.19.1
   values:

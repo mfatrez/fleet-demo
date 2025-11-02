@@ -1,0 +1,7 @@
+defaultNamespace: metallb-system
+helm:
+  releaseName: metallb
+  chart: "https://metallb.github.io/metallb"
+  version: "0.15.2"
+  # custom chart value overrides
+  values: {}

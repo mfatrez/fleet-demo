@@ -1,6 +1,21 @@
-defaultNamespace: cert-manager
-helm:
-  releaseName: cert-manager
-  repo: https://charts.jetstack.io
-  chart: cert-manager
-  version: v1.19.1
+apiVersion: fleet.cattle.io/v1alpha1
+kind: Bundle
+metadata:
+  name: cert-manager
+spec:
+  targets:
+    - name: default
+      clusterSelector:
+        matchLabels:
+          infra: workload
+  helm:
+    releaseName: cert-manager
+    chart: 
+      repo: https://charts.jetstack.io
+      name: cert-manager
+      version: "v1.19.1"
+    values:
+      crds:
+        enabled: true
+  namespace: cert-manager
+

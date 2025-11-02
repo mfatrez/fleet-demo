@@ -1,0 +1,10 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: prd-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 10.77.4.80/32
+  autoAssign: false
+  avoidBuggyIPs: false

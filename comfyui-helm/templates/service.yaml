@@ -8,6 +8,9 @@ metadata:
   labels:
     app.kubernetes.io/name: comfyui
     app.kubernetes.io/instance: comfyui
+    app.kubernetes.io/managed-by: "Helm"
+    meta.helm.sh/release-name: comfyui-comfyui-helm
+    meta.helm.sh/release-namespace: "comfyui"
 spec:
   type: NodePort
   ports:

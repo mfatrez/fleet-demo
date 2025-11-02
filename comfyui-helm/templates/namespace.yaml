@@ -2,3 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/managed-by: "Helm"
+    meta.helm.sh/release-name: comfyui-comfyui-helm
+    meta.helm.sh/release-namespace: "comfyui"

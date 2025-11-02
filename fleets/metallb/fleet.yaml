@@ -12,23 +12,20 @@ overrideTargets:
         infra: workload
 targetCustomizations:
 - name: dev
-  yaml:
-    overlays:
-      - metallb-dev
   clusterSelector:
     matchLabels:
       env: dev
+  kustomization:
+    dir: overlays/dev
 - name: test
-  yaml:
-    overlays:
-      - metallb-tst
   clusterSelector:
     matchLabels:
       env: tst
+  kustomization:
+    dir: overlays/tst
 - name: prod
-  yaml:
-    overlays:
-      - metallb-prd
   clusterSelector:
     matchLabels:
       env: prd
+  kustomization:
+    dir: overlays/prd

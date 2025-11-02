@@ -6,3 +6,29 @@ helm:
   version: "0.15.2"
   # custom chart value overrides
   values: {}
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        infra: workload
+targetCustomizations:
+- name: dev
+  yaml:
+    overlays:
+      - metallb-dev
+  clusterSelector:
+    matchLabels:
+      env: dev
+- name: test
+  yaml:
+    overlays:
+      - metallb-tst
+  clusterSelector:
+    matchLabels:
+      env: tst
+- name: prod
+  yaml:
+    overlays:
+      - metallb-prd
+  clusterSelector:
+    matchLabels:
+      env: prd

@@ -3,13 +3,6 @@ kind: Bundle
 metadata:
   name: cert-manager
 spec:
-  resources:
-    - namespace.yaml
-  targets:
-    - name: default
-      clusterSelector:
-        matchLabels:
-          infra: workload
   helm:
     releaseName: cert-manager
     chart: 
@@ -19,3 +12,10 @@ spec:
     values:
       crds:
         enabled: true
+    createNamespace: true
+  namespace: cert-manager
+  targets:
+    - name: default
+      clusterSelector:
+        matchLabels:
+          infra: workload

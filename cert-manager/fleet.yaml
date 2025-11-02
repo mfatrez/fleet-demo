@@ -3,11 +3,11 @@ namespace: cert-manager
 helm:
   chart: ./chart/cert-manager
   repo: "https://charts.jetstack.io"
-  version: 1.19.1
+  version: v1.19.1
   values:
     crds:
       enabled: true
-  createNamespace: true
+  releaseName: my-release
 overrideTargets:
   - clusterSelector:
       matchLabels:

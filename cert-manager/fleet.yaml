@@ -1,16 +1,13 @@
 namespace: cert-manager
 helm:
-  releaseName: cert-manager
   chart: 
-    repo: "https://charts.jetstack.io"
-    name: cert-manager
-    version: 1.19.1
+  repo: "https://charts.jetstack.io"
+  version: 1.19.1
   values:
     crds:
       enabled: true
   createNamespace: true
-targets:
-  - name: default
-    clusterSelector:
+overrideTargets:
+  - clusterSelector:
       matchLabels:
         infra: workload
